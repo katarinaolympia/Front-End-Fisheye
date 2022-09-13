@@ -2,36 +2,280 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7f6f7e9ee0.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
   </head>
   <body>
+    <!-- Header avec logo -->
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="http://127.0.0.1:5500/Front-End-Fisheye/index.html">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
+      /></a>
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
+
+    <!--  Modale de contact -->
     <div id="contact_modal">
-			<div class="modal">
-				<header>
+      <div class="modal">
+        <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" id="close_btn" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+        <form>
+          <h3 id="modal_photographer_name"><!--Mimi Keel--></h3>
+          <div>
+            <label>Prénom</label><br />
+            <input
+              class="text_control error_outline_firstName"
+              type="text"
+              id="firstName"
+              name="fistName"
+            />
+            <br />
+            <span class="error_message error_message_firstName"
+              >Veuillez entrer votre prénom</span
+            >
+          </div>
+
+          <div>
+            <label>Nom</label><br />
+            <input
+              class="text_control error_outline_lastName"
+              type="text"
+              id="lastName"
+              name="lastName"
+            />
+            <br />
+            <span class="error_message error_message_lastName"
+              >Veuillez entrer votre nom</span
+            >
+          </div>
+
+          <div>
+            <label>E-mail</label><br />
+            <input
+              class="text_control error_outline_email"
+              type="text"
+              id="email"
+              name="email"
+            />
+            <br />
+            <span class="error_message error_message_email"
+              >Veuillez entrer une adresse mail valide</span
+            >
+          </div>
+
+          <div>
+            <label>Votre message</label><br />
+            <input
+              class="text_control error_outline_message"
+              type="text"
+              id="message"
+              name="message"
+            />
+            <br />
+            <span class="error_message error_message_message"
+              >Votre texte doit être inférieur à 1000 caractères</span
+            >
+          </div>
+          <button class="contact_button modal_button" id="submit_button">
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--  Main avec profil du photographe -->
+    <main id="main">
+      <div id="header_profil">
+        <h1 id="header_photographer_name"><!-- Mimi Keel--></h1>
+        <button class="contact_button" id="contact_button">
+          Contactez-moi
+        </button>
+        <img class="picture_profil" id="photographer_picture" />
+      </div>
+      <div class="text">
+        <p class="header_title_text city_country_flex" id="photographer_city">
+          <!-- London-->,
+          <!--UK-->
+        </p>
+        <p class="header_text" id="photographer_tagline">
+          <!-- Voir le beau dans le quotidien -->
+        </p>
+      </div>
+
+      <!--  Texte statique bord de page -->
+      <div class="text_border_right">
+        <div>
+          <span id="total_like_number"><!--297 081--></span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="border_div_heart"
+            width="15"
+            height="14"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"
+            />
+          </svg>
+        </div>
+        <span id="photographer_price"><!-- 300-->€ / jour</span>
+      </div>
+
+      <!--  Select label -->
+      <div class="photo_select">
+        <div class="photo_select"><strong>Trier par</strong></div>
+        <div class="div_select">
+          <button data-order="popularity" class="option" id="popularity_option">
+            Popularité<span class="arrow arrow_up"></span>
+          </button>
+          <button
+            data-order="date"
+            class="option hidden_option"
+            id="date_option"
+          >
+            Date
+          </button>
+          <button
+            data-order="title"
+            class="option hidden_option"
+            id="title_option"
+          >
+            Titre
+          </button>
+        </div>
+      </div>
+
+      <!--  Galerie Photos -->
+      <section class="photo_gallery">
+        <!-- 
+        <a href="#" alt="Lilac breasted roller, closeup view">
+          <img
+            src="assets/Photo_photographer/Mimi/Animals_Rainbow.jpg"
+            alt="Animal Rainbow"
+            class="photography"
+          />
+          <div class="media_description">
+            <span class="media_title">Arc-en-ciel</span>
+              <div class="media_like_div">
+              <span class="media_like_number">11</span>
+              <i class="fa-regular fa-heart media_like"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" alt="Lilac breasted roller, closeup view">
+          <img
+            src="assets/Photo_photographer/Mimi/Travel_Lonesome.jpg"
+            alt="Travel Lonesome"
+            class="photography"
+          />
+          <div class="media_description">
+            <span class="media_title">Solitude</span>
+            <div class="media_like_div">
+              <span class="media_like_number">12</span>
+              <i class="fa-regular fa-heart media_like"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" alt="Lilac breasted roller, closeup view">
+          <img
+            src="assets/Photo_photographer/Mimi/Event_SeasideWedding.jpg"
+            alt="Event Seaside Wedding"
+            class="photography"
+          />
+          <div class="media_description">
+            <span class="media_title">Mariage à la mer</span>
+            <div class="media_like_div">
+              <span class="media_like_number">12</span>
+              <i class="fa-regular fa-heart media_like"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" alt="Lilac breasted roller, closeup view">
+          <img
+            src="assets/Photo_photographer/Mimi/Portrait_Background.jpg"
+            alt="Portrait Background"
+            class="photography"
+          />
+          <div class="media_description">
+            <span class="media_title">Portrait noir & blanc</span>
+            <div class="media_like_div">
+              <span class="media_like_number">11</span>
+              <i class="fa-regular fa-heart media_like"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" alt="Lilac breasted roller, closeup view">
+          <img
+            src="assets/Photo_photographer/Mimi/Event_PintoWedding.jpg"
+            alt="Event Pinto Wedding"
+            class="photography"
+          />
+          <div class="media_description">
+            <span class="media_title">Mariage Pinto</span>
+            <div class="media_like_div">
+              <span class="media_like_number">11</span>
+              <i class="fa-regular fa-heart media_like"></i>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" alt="Lilac breasted roller, closeup view">
+          <img
+            src="assets/Photo_photographer/Mimi/Portrait_Wednesday.jpg"
+            alt="Portrait Wednesday"
+            class="photography"
+          />
+          <div class="media_description">
+            <span class="media_title">Portrait Wednesday</span>
+            <div class="media_like_div">
+              <span class="media_like_number">11</span>
+              <i class="fa-regular fa-heart media_like"></i>
+            </div>
+          </div>
+        </a>-->
+
+        <!-- Modal Lightbox -->
+
+        <div class="lightbox_container">
+          <div class="chevron_left" id="previous">
+            <i class="fa-solid fa-chevron-left chevron"></i>
+          </div>
+          <div>
+            <div class="image_container">
+              <img
+                src="assets/medias_photographer/Animals_Majesty.jpg"
+                class="image_video"
+              />
+            </div>
+            <span class="image_text">Texte</span>
+          </div>
+          <div class="chevron_right" id="next">
+            <i class="fa-solid fa-chevron-right chevron"></i>
+          </div>
+          <div class="close_lightbox">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+      </section>
+    </main
   </body>
+    <script src="./scripts/utils/contactForm.js"></script>
+    <script src="./scripts/pages/photographer.js"></script>
+    <script src="./scripts/pages/lightbox.js"></script>
+    <script src="./photographers.json"></script>
 </html>
