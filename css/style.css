@@ -151,6 +151,10 @@ h1 {
   font-weight: 500;
 }
 
+#contact_button:focus {
+  font-weight: 800;
+}
+
 .text {
   position: relative;
   top: -160px;
@@ -208,10 +212,14 @@ h1 {
 
 .media_like {
   position: relative;
-  top: -22px;
-  left: 228px;
-  color: #901c1c;
+  top: -21px;
+  left: 229px;
   fill: #901c1c;
+  opacity: 0.8;
+}
+
+.media_like:hover {
+  opacity: 1;
 }
 
 .text_border_right {
@@ -259,7 +267,8 @@ h1 {
   height: 50px;
   border: 0;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 500;
   font-family: "DM Sans", sans-serif;
   font-weight: thin;
   background-color: #901c1c;
@@ -267,9 +276,13 @@ h1 {
   cursor: pointer;
 }
 
+.option:focus{
+  font-weight: 800;
+}
+
 .arrow {
   position: relative;
-  right: -50px;
+  right: -40px;
   border: solid white;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -288,18 +301,15 @@ h1 {
 .lightbox_container {
   display: none;
   background-color: white;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform: translate3d(0, -50%, 0);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
   z-index: 1000;
   justify-content: center;
   align-items: center;
   padding-bottom: 10px;
-}
-
-.hidden {
-  display: none;
 }
 
 .chevron_left,
@@ -310,7 +320,7 @@ h1 {
   cursor: pointer;
 }
 
-.image_video {
+.image_lightbox {
   width: 550px;
   height: 550px;
   object-fit: cover;

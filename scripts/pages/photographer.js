@@ -119,10 +119,10 @@ function mediasToDisplay(mediasArray) {
         ${mediasFactory(media)}
 
         <div class="media_description">
-            <span class="media_title">${media.title}</span>
+            <span role="title" class="media_title">${media.title}</span>
               <div class="media_like_div">
-              <span class="media_like_number">${media.likes}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="media_like" width="14" height="14" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>
+              <span class="media_like_number" aria-label="likes">${media.likes}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="media_like" width="15" height="16" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>
             </div>
         </div>
     </article>
@@ -133,26 +133,42 @@ function mediasToDisplay(mediasArray) {
   document.querySelector(".photo_gallery").innerHTML = html;
 
   const medias = document.querySelectorAll(".photography");
-
   medias.forEach((media, mediaIndex) => {
     media.addEventListener("click", () => {
       return lightbox(mediasArray, mediaIndex);
     });
   });
+
+  const likeButtons = document.querySelectorAll(".media_like");
+  likeButtons.forEach((like) => {
+    like.addEventListener("click", function () {
+      return addLike(this);
+    });
+  });
+
+  let isLiked = false;
+  let sum = 0;
+  function addLike(likeButton) {
+    let heartNumber = likeButton.previousElementSibling;
+    if (isLiked === false) {
+      heartNumber.textContent = Number(heartNumber.textContent) + 1;
+      
+      return (isLiked = true);
+    }
+    heartNumber.textContent = Number(heartNumber.textContent) - 1;
+    return (isLiked = false);
+  }
+
+  function totalLikes(likeButton) {
+    likeButton.forEach(() => {
+    sum += Number(heartNumber.textContent);
+  });
+  console.log(sum);
+  sum.insertAdjacentHTML(
+    "afterbegin",
+    document.querySelector("#total_like_number")
+  );}
+
+  totalLikes();
+
 }
-
-// Ajouter des likes
-//let likeNumber = document.querySelector(".media_like"); // undefined
-//likeNumber.addEventListener("click", addLike);
-//function addLike(like) {
-//like.forEach((media) => {
-// media.likes++;
-// });
-//}
-
-//const totalLike = document.getElementById("total_like_number"); // undefined
-//let sum = 0;
-//for (let likes of likeNumber) {
-// sum += likes;
-// totalLike.insertAdjacentHTML("afterbegin", likes);
-//}

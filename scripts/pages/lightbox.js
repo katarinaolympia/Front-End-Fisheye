@@ -3,14 +3,14 @@ function openLightbox() {
 
   document.querySelector(".lightbox_container").style.display = "flex";
 }
-
+ 
 function closeLightbox() {
   return (document.querySelector(".lightbox_container").style.display = "none");
 }
 
-function lightbox(mediasArray, indexMediaToDisplay) {
+function lightbox(mediasArray, mediaIndex) {
   const imageContainer = document.querySelector(".image_container");
-  const firstMediaToDisplay = mediasArray[indexMediaToDisplay];
+  const firstMediaToDisplay = mediasArray[mediaIndex];
 
   openLightbox();
   displayMediaInLightbox(firstMediaToDisplay);
@@ -55,7 +55,8 @@ function lightbox(mediasArray, indexMediaToDisplay) {
   }
 
   function displayMediaInLightbox(mediasToDisplay) {
-    const mediaHTML = `
+    
+    const mediaHTML = `alt="${data.title}"
   ${mediasFactory(mediasToDisplay)}
   <div class="image_text">${mediasToDisplay.title}</div>`;
 

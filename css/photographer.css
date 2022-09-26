@@ -47,7 +47,9 @@
 #close_btn{
 height: 30px;
 position: relative;
-top: -20px;
+top: -660px;
+left: 470px;
+cursor: pointer;
 }
 
 .modal header {

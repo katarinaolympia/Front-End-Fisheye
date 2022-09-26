@@ -24,21 +24,22 @@
     </header>
 
     <!--  Modale de contact -->
-    <div id="contact_modal">
+    <div id="contact_modal" aria-labelledby="modal_photographer_name" aria-controls="modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" id="close_btn" />
         </header>
         <form>
           <h3 id="modal_photographer_name"><!--Mimi Keel--></h3>
           <div>
-            <label>Prénom</label><br />
+            <label id="label1">Prénom</label><br />
             <input
               class="text_control error_outline_firstName"
               type="text"
               id="firstName"
-              name="fistName"
+              name="firstName"
+              aria-required="true"
+              aria-labelledby="label1"
             />
             <br />
             <span class="error_message error_message_firstName"
@@ -47,12 +48,14 @@
           </div>
 
           <div>
-            <label>Nom</label><br />
+            <label id="label2">Nom</label><br />
             <input
               class="text_control error_outline_lastName"
               type="text"
               id="lastName"
               name="lastName"
+              aria-required="true"
+              aria-labelledby="label2"
             />
             <br />
             <span class="error_message error_message_lastName"
@@ -61,12 +64,14 @@
           </div>
 
           <div>
-            <label>E-mail</label><br />
+            <label id="label3">E-mail</label><br />
             <input
               class="text_control error_outline_email"
               type="text"
               id="email"
               name="email"
+              aria-required="true"
+              aria-labelledby="label3"
             />
             <br />
             <span class="error_message error_message_email"
@@ -75,21 +80,26 @@
           </div>
 
           <div>
-            <label>Votre message</label><br />
+            <label id="label4">Votre message</label><br />
             <input
               class="text_control error_outline_message"
               type="text"
               id="message"
               name="message"
+              aria-required="false"
+              aria-labelledby="label4"
+              aria-valuenow="0"
+              aria-valuetext="1000"
             />
             <br />
             <span class="error_message error_message_message"
               >Votre texte doit être inférieur à 1000 caractères</span
             >
           </div>
-          <button class="contact_button modal_button" id="submit_button">
+          <button type="submit" class="contact_button modal_button" id="submit_button">
             Envoyer
           </button>
+          <img src="assets/icons/close.svg" id="close_btn" alt="Fermer le formulaire de contact"/>
         </form>
       </div>
     </div>
@@ -98,10 +108,10 @@
     <main id="main">
       <div id="header_profil">
         <h1 id="header_photographer_name"><!-- Mimi Keel--></h1>
-        <button class="contact_button" id="contact_button">
+        <button type="button" class="contact_button" id="contact_button">
           Contactez-moi
         </button>
-        <img class="picture_profil" id="photographer_picture" />
+        <img class="picture_profil" id="photographer_picture" alt=""/>
       </div>
       <div class="text">
         <p class="header_title_text city_country_flex" id="photographer_city">
@@ -136,10 +146,12 @@
       <div class="photo_select">
         <div class="photo_select"><strong>Trier par</strong></div>
         <div class="div_select">
-          <button data-order="popularity" class="option" id="popularity_option">
+          <button type="button" aria-label="Order by popularity" aria-haspopup="listbox" aria-expanded="false" data-order="popularity" class="option" id="popularity_option">
             Popularité<span class="arrow arrow_up"></span>
           </button>
           <button
+            aria-label="Order by date"
+            type="button"
             data-order="date"
             class="option hidden_option"
             id="date_option"
@@ -147,6 +159,8 @@
             Date
           </button>
           <button
+            aria-label="Order by title"
+            type="button"
             data-order="title"
             class="option hidden_option"
             id="title_option"
@@ -248,31 +262,31 @@
             </div>
           </div>
         </a>-->
-
+      </section>
+    </main>
         <!-- Modal Lightbox -->
 
-        <div class="lightbox_container">
+        <div class="lightbox_container" aria-label="Vue détaillée de l'image">
           <div class="chevron_left" id="previous">
-            <i class="fa-solid fa-chevron-left chevron"></i>
+            <i class="fa-solid fa-chevron-left chevron" aria-label="Image précédente"></i>
           </div>
           <div>
-            <div class="image_container">
+            <div class="image_container"><!--
               <img
                 src="assets/medias_photographer/Animals_Majesty.jpg"
-                class="image_video"
-              />
+                class="image_lightbox"
+              />-->
             </div>
-            <span class="image_text">Texte</span>
+            <span class="image_text"></span>
           </div>
           <div class="chevron_right" id="next">
-            <i class="fa-solid fa-chevron-right chevron"></i>
+            <i class="fa-solid fa-chevron-right chevron" aria-label="Image suivante"></i>
           </div>
           <div class="close_lightbox">
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark" aria-label="Fermeture de la fenêtre"></i>
           </div>
         </div>
-      </section>
-    </main
+      
   </body>
     <script src="./scripts/utils/contactForm.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
