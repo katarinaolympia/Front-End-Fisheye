@@ -1,9 +1,7 @@
 function openLightbox() {
-  console.log(document.querySelector(".lightbox_container"));
-
   document.querySelector(".lightbox_container").style.display = "flex";
 }
- 
+
 function closeLightbox() {
   return (document.querySelector(".lightbox_container").style.display = "none");
 }
@@ -55,15 +53,14 @@ function lightbox(mediasArray, mediaIndex) {
   }
 
   function displayMediaInLightbox(mediasToDisplay) {
-    
-    const mediaHTML = `alt="${data.title}"
-  ${mediasFactory(mediasToDisplay)}
-  <div class="image_text">${mediasToDisplay.title}</div>`;
+    const mediaHTML = `
+      ${mediasFactory(mediasToDisplay)}
+      <div class="image_text">${mediasToDisplay.title}</div>`;
 
     imageContainer.innerHTML = mediaHTML;
     if (mediasToDisplay.video !== undefined) {
-      const lightbox = document.querySelector("#lightbox");
-      lightbox.querySelector(".video_media").setAttribute("controls, true");
+      const lightbox = document.querySelector(".lightbox_container");
+      lightbox.querySelector(".video_media").setAttribute("controls", true);
     }
 
     return false;
@@ -80,6 +77,13 @@ function lightbox(mediasArray, mediaIndex) {
 
     if (event.key === "ArrowLeft") {
       return previousPicture();
+    }
+  });
+
+  const closeButton = document.querySelector(".close");
+  closeButton.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      return closeLightbox();
     }
   });
 

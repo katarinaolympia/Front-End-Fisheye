@@ -276,7 +276,7 @@ h1 {
   cursor: pointer;
 }
 
-.option:focus{
+.option:focus {
   font-weight: 800;
 }
 
@@ -312,31 +312,34 @@ h1 {
   padding-bottom: 10px;
 }
 
-.chevron_left,
-.chevron_right {
-  color: #901c1c;
-  font-size: 38px;
-  padding: 25px;
-  cursor: pointer;
-}
-
-.image_lightbox {
-  width: 550px;
-  height: 550px;
+.lightbox_container img,
+.lightbox_container video {
+  width: 500px;
+  height: 500px;
   object-fit: cover;
   border-radius: 5px;
   padding-bottom: 5px;
 }
 
+.chevron_left,
+.chevron_right {
+  color: #901c1c;
+  font-size: 38px;
+  padding: 30px;
+  cursor: pointer;
+}
+
 .image_text {
   color: #901c1c;
-  font: 20px;
+  font: 22px;
+  font-weight: 600;
 }
 
 .close_lightbox {
   color: #901c1c;
   font-size: 38px;
   position: absolute;
-  top: 60px;
+  top: 55px;
   right: 288px;
+  cursor: pointer;
 }

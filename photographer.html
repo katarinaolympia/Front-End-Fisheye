@@ -24,8 +24,13 @@
     </header>
 
     <!--  Modale de contact -->
-    <div id="contact_modal" aria-labelledby="modal_photographer_name" aria-controls="modal">
-      <div class="modal">
+    <div id="contact_modal">
+      <div
+        class="modal"
+        arial-label="Contactez-moi"
+        aria-labelledby="modal_photographer_name"
+        aria-controls="modal"
+      >
         <header>
           <h2>Contactez-moi</h2>
         </header>
@@ -96,10 +101,20 @@
               >Votre texte doit être inférieur à 1000 caractères</span
             >
           </div>
-          <button type="submit" class="contact_button modal_button" id="submit_button">
+          <button
+            type="submit"
+            class="contact_button modal_button"
+            id="submit_button"
+          >
             Envoyer
           </button>
-          <img src="assets/icons/close.svg" id="close_btn" alt="Fermer le formulaire de contact"/>
+          <img
+            src="assets/icons/close.svg"
+            id="close_btn"
+            alt="Fermer le formulaire de contact"
+            aria-label="fermer le formulaire de contact"
+            tabindex="0"
+          />
         </form>
       </div>
     </div>
@@ -111,7 +126,7 @@
         <button type="button" class="contact_button" id="contact_button">
           Contactez-moi
         </button>
-        <img class="picture_profil" id="photographer_picture" alt=""/>
+        <img class="picture_profil" id="photographer_picture" alt="" />
       </div>
       <div class="text">
         <p class="header_title_text city_country_flex" id="photographer_city">
@@ -146,7 +161,15 @@
       <div class="photo_select">
         <div class="photo_select"><strong>Trier par</strong></div>
         <div class="div_select">
-          <button type="button" aria-label="Order by popularity" aria-haspopup="listbox" aria-expanded="false" data-order="popularity" class="option" id="popularity_option">
+          <button
+            type="button"
+            aria-label="Order by popularity"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            data-order="popularity"
+            class="option"
+            id="popularity_option"
+          >
             Popularité<span class="arrow arrow_up"></span>
           </button>
           <button
@@ -264,57 +287,41 @@
         </a>-->
       </section>
     </main>
-<<<<<<< HEAD
-        <!-- Modal Lightbox -->
+    
+    <!-- Modal Lightbox -->
 
-        <div class="lightbox_container" aria-label="Vue détaillée de l'image">
-          <div class="chevron_left" id="previous">
-            <i class="fa-solid fa-chevron-left chevron" aria-label="Image précédente"></i>
-          </div>
-          <div>
-            <div class="image_container"><!--
+    <div class="lightbox_container" aria-label="Vue détaillée de l'image" tabindex="0">
+      <div class="chevron_left" id="previous">
+        <i
+          class="fa-solid fa-chevron-left chevron"
+          aria-label="Image précédente"
+          tabindex="0"
+        ></i>
+      </div>
+      <div>
+        <div class="image_container">
+          <!--
               <img
                 src="assets/medias_photographer/Animals_Majesty.jpg"
                 class="image_lightbox"
               />-->
-            </div>
-            <span class="image_text"></span>
-          </div>
-          <div class="chevron_right" id="next">
-            <i class="fa-solid fa-chevron-right chevron" aria-label="Image suivante"></i>
-          </div>
-          <div class="close_lightbox">
-            <i class="fa-solid fa-xmark" aria-label="Fermeture de la fenêtre"></i>
-          </div>
         </div>
-      
-=======
-     <!-- Modal Lightbox -->
-
-     <div class="lightbox_container">
-      <div class="chevron_left" id="previous">
-        <i class="fa-solid fa-chevron-left chevron"></i>
-      </div>
-      <div>
-        <div class="image_container">
-          <img
-            src="assets/medias_photographer/Animals_Majesty.jpg"
-            class="image_video"
-          />
-        </div>
-        <span class="image_text">Texte</span>
+        <span class="image_text"></span>
       </div>
       <div class="chevron_right" id="next">
-        <i class="fa-solid fa-chevron-right chevron"></i>
+        <i
+          class="fa-solid fa-chevron-right chevron"
+          aria-label="Image suivante"
+          tabindex="0"
+        ></i>
       </div>
       <div class="close_lightbox">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark close" aria-label="Fermeture de la fenêtre" tabindex="0"></i>
       </div>
     </div>
->>>>>>> refs/remotes/origin/main
   </body>
-    <script src="./scripts/utils/contactForm.js"></script>
-    <script src="./scripts/pages/photographer.js"></script>
-    <script src="./scripts/pages/lightbox.js"></script>
-    <script src="./photographers.json"></script>
+  <script src="./scripts/utils/contactForm.js"></script>
+  <script src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts/pages/lightbox.js"></script>
+  <script src="./photographers.json"></script>
 </html>
