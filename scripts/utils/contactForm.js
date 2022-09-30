@@ -91,3 +91,22 @@ submitBtn.addEventListener("click", (event) => {
     return console.log(firstNameValue, lastNameValue, emailValue, messageValue);
   }
 });
+
+// Accessibilité par clavier
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    return closeModal();
+  }
+});
+
+submitBtn.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    return console.log(firstNameValue, lastNameValue, emailValue, messageValue);
+  }
+});
+
+modalCloseBtn.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    return closeModal();
+  }
+});

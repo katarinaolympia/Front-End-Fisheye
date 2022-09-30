@@ -81,8 +81,8 @@ function lightbox(mediasArray, mediaIndex) {
   });
 
   const closeButton = document.querySelector(".close");
-  closeButton.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
+  closeButton.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
       return closeLightbox();
     }
   });

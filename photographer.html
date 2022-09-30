@@ -24,7 +24,7 @@
     </header>
 
     <!--  Modale de contact -->
-    <div id="contact_modal">
+    <div id="contact_modal" tabindex="1">
       <div
         class="modal"
         arial-label="Contactez-moi"
@@ -45,6 +45,7 @@
               name="firstName"
               aria-required="true"
               aria-labelledby="label1"
+              tabindex="1"
             />
             <br />
             <span class="error_message error_message_firstName"
@@ -61,6 +62,7 @@
               name="lastName"
               aria-required="true"
               aria-labelledby="label2"
+              tabindex="1"
             />
             <br />
             <span class="error_message error_message_lastName"
@@ -77,6 +79,7 @@
               name="email"
               aria-required="true"
               aria-labelledby="label3"
+              tabindex="1"
             />
             <br />
             <span class="error_message error_message_email"
@@ -95,6 +98,7 @@
               aria-labelledby="label4"
               aria-valuenow="0"
               aria-valuetext="1000"
+              tabindex="1"
             />
             <br />
             <span class="error_message error_message_message"
@@ -105,6 +109,7 @@
             type="submit"
             class="contact_button modal_button"
             id="submit_button"
+            tabindex="1"
           >
             Envoyer
           </button>
@@ -113,7 +118,7 @@
             id="close_btn"
             alt="Fermer le formulaire de contact"
             aria-label="fermer le formulaire de contact"
-            tabindex="0"
+            tabindex="1"
           />
         </form>
       </div>
@@ -287,10 +292,14 @@
         </a>-->
       </section>
     </main>
-    
+
     <!-- Modal Lightbox -->
 
-    <div class="lightbox_container" aria-label="Vue détaillée de l'image" tabindex="0">
+    <div
+      class="lightbox_container"
+      aria-label="Vue détaillée de l'image"
+      tabindex="0"
+    >
       <div class="chevron_left" id="previous">
         <i
           class="fa-solid fa-chevron-left chevron"
@@ -316,7 +325,11 @@
         ></i>
       </div>
       <div class="close_lightbox">
-        <i class="fa-solid fa-xmark close" aria-label="Fermeture de la fenêtre" tabindex="0"></i>
+        <i
+          class="fa-solid fa-xmark close"
+          aria-label="Fermeture de la fenêtre"
+          tabindex="0"
+        ></i>
       </div>
     </div>
   </body>

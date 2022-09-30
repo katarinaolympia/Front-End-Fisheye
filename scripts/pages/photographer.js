@@ -68,7 +68,7 @@ function photographerToDisplay(photographerInfo) {
   return true;
 }
 
-// Tri de sélection
+// Ouverture et fermeture du tri de sélection
 
 const popularityOption = document.getElementById("popularity_option");
 const dateOption = document.getElementById("date_option");
@@ -163,14 +163,67 @@ function mediasToDisplay(mediasArray) {
   let isLiked = false;
   function addLike(likeButton) {
     let heartNumber = likeButton.previousElementSibling;
+    console.log(likeButton.previousElementSibling);
     if (isLiked === false) {
       heartNumber.textContent = Number(heartNumber.textContent) + 1;
-      //
       return (isLiked = true);
     }
     heartNumber.textContent = Number(heartNumber.textContent) - 1;
     return (isLiked = false);
   }
 
+  // Tri des médias
 
+  mediasArray.forEach((media) => {
+    const popularityButton = document.getElementById("popularity_option");
+    popularityOption.addEventListener("click", function () {
+      return orderByPopularity();
+    });
+    function orderByPopularity() {
+      mediasArray.sort(function (a, b) {
+        return b.likes - a.likes;
+      });
+      mediasArray.forEach(function (e) {
+        console.log(e.likes);
+      });
+    }
+
+    const dateButton = document.getElementById("date_option");
+    dateButton.addEventListener("click", function () {
+      return orderByDate();
+    });
+    function orderByDate() {
+      mediasArray.sort(function (a, b) {
+        let dateA = a.date;
+        let dateB = b.date;
+        if (dateA > dateB) {
+          return -1;
+        } else if (dateA === dateB) {
+          return 0;
+        } else {
+          return 1;
+        }
+      });
+      mediasArray.forEach(function (e) {
+        console.log(e.date);
+      });
+    }
+
+    const titleButton = document.getElementById("title_option");
+    titleButton.addEventListener("click", function () {
+      return orderByTitle();
+    });
+    function orderByTitle() {
+      mediasArray.sort(function (a, b) {
+        if (a.title < b.title) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+      mediasArray.forEach(function (e) {
+        console.log(e.title);
+      });
+    }
+  });
 }
