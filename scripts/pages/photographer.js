@@ -31,6 +31,7 @@ fetch("./photographers.json")
 
     photographerToDisplay(photographerInfo);
     mediasToDisplay(photographerMedias);
+    orderFilterMedias(photographerMedias);
   });
 
 // Afficher header photographer
@@ -174,56 +175,71 @@ function mediasToDisplay(mediasArray) {
 
   // Tri des médias
 
-  mediasArray.forEach((media) => {
-    const popularityButton = document.getElementById("popularity_option");
-    popularityOption.addEventListener("click", function () {
-      return orderByPopularity();
-    });
-    function orderByPopularity() {
-      mediasArray.sort(function (a, b) {
-        return b.likes - a.likes;
-      });
-      mediasArray.forEach(function (e) {
-        console.log(e.likes);
-      });
-    }
+  // mediasArray.forEach((media) => {
+  //   const popularityButton = document.getElementById("popularity_option");
+  //   popularityOption.addEventListener("click", function () {
+  //     return orderByPopularity();
+  //   });
+  //   function orderByPopularity() {
+  //     mediasArray.sort(function (a, b) {
+  //       return b.likes - a.likes;
+  //     });
+  //     mediasArray.forEach(function (e) {
+  //       console.log(e.likes);
+  //     });
+  //   }
 
-    const dateButton = document.getElementById("date_option");
-    dateButton.addEventListener("click", function () {
-      return orderByDate();
-    });
-    function orderByDate() {
-      mediasArray.sort(function (a, b) {
-        let dateA = a.date;
-        let dateB = b.date;
-        if (dateA > dateB) {
-          return -1;
-        } else if (dateA === dateB) {
-          return 0;
-        } else {
-          return 1;
-        }
-      });
-      mediasArray.forEach(function (e) {
-        console.log(e.date);
-      });
-    }
+  //   const dateButton = document.getElementById("date_option");
+  //   dateButton.addEventListener("click", function () {
+  //     return orderByDate();
+  //   });
+  //   function orderByDate() {
+  //     mediasArray.sort(function (a, b) {
+  //       let dateA = a.date;
+  //       let dateB = b.date;
+  //       if (dateA > dateB) {
+  //         return -1;
+  //       } else if (dateA === dateB) {
+  //         return 0;
+  //       } else {
+  //         return 1;
+  //       }
+  //     });
+  //     mediasArray.forEach(function (e) {
+  //       console.log(e.date);
+  //     });
+  //   }
 
-    const titleButton = document.getElementById("title_option");
-    titleButton.addEventListener("click", function () {
-      return orderByTitle();
-    });
-    function orderByTitle() {
-      mediasArray.sort(function (a, b) {
-        if (a.title < b.title) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-      mediasArray.forEach(function (e) {
-        console.log(e.title);
-      });
-    }
+  //   const titleButton = document.getElementById("title_option");
+  //   titleButton.addEventListener("click", function () {
+  //     return orderByTitle();
+  //   });
+  //   function orderByTitle() {
+  //     mediasArray.sort(function (a, b) {
+  //       if (a.title < b.title) {
+  //         return -1;
+  //       } else {
+  //         return 1;
+  //       }
+  //     });
+  //     mediasArray.forEach(function (e) {
+  //       console.log(e.title);
+  //     });
+  //   }
+  // });
+}
+
+function orderFilterMedias(mediasArray){
+  const filterButtons = document.querySelectorAll(".option");
+
+  filterButtons.forEach((button)=> {
+
+    button.onclick = function(){
+
+      mediasToDisplay(filterMedias(mediasArray, this.dataset.order));
+      console.log(mediasArray, this.dataset.order);
+
+    },{passive:true};
+
   });
 }
