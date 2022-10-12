@@ -31,6 +31,7 @@ fetch("./photographers.json")
 
     photographerToDisplay(photographerInfo);
     mediasToDisplay(photographerMedias);
+    totalLike(photographerMedias);
     orderFilterMedias(photographerMedias);
   });
 
@@ -115,7 +116,6 @@ function createVideo(data, mediaIndex) {
 function mediasToDisplay(mediasArray) {
   let html = "";
   mediasArray.forEach((media, index) => {
-    totalLikes = Number(totalLikes) + Number(media.likes);
     html += `
     <article>
     
@@ -136,7 +136,8 @@ function mediasToDisplay(mediasArray) {
   });
 
   document.querySelector(".photo_gallery").innerHTML = html;
-  document.querySelector("#total_like_number").textContent = totalLikes;
+
+  // Événement et appel à la fonction d'ouverture de la lightbox
 
   const medias = document.querySelectorAll(".photography");
   medias.forEach((media, mediaIndex) => {
@@ -154,6 +155,8 @@ function mediasToDisplay(mediasArray) {
     }
   });
 
+  // Ajout des likes
+
   const likeButtons = document.querySelectorAll(".media_like");
   likeButtons.forEach((like) => {
     like.addEventListener("click", function () {
@@ -164,82 +167,45 @@ function mediasToDisplay(mediasArray) {
   let isLiked = false;
   function addLike(likeButton) {
     let heartNumber = likeButton.previousElementSibling;
-    console.log(likeButton.previousElementSibling);
+
     if (isLiked === false) {
       heartNumber.textContent = Number(heartNumber.textContent) + 1;
       return (isLiked = true);
     }
+
     heartNumber.textContent = Number(heartNumber.textContent) - 1;
     return (isLiked = false);
   }
 
-  // Tri des médias
-
   // mediasArray.forEach((media) => {
-  //   const popularityButton = document.getElementById("popularity_option");
-  //   popularityOption.addEventListener("click", function () {
-  //     return orderByPopularity();
-  //   });
-  //   function orderByPopularity() {
-  //     mediasArray.sort(function (a, b) {
-  //       return b.likes - a.likes;
-  //     });
-  //     mediasArray.forEach(function (e) {
-  //       console.log(e.likes);
-  //     });
-  //   }
-
-  //   const dateButton = document.getElementById("date_option");
-  //   dateButton.addEventListener("click", function () {
-  //     return orderByDate();
-  //   });
-  //   function orderByDate() {
-  //     mediasArray.sort(function (a, b) {
-  //       let dateA = a.date;
-  //       let dateB = b.date;
-  //       if (dateA > dateB) {
-  //         return -1;
-  //       } else if (dateA === dateB) {
-  //         return 0;
-  //       } else {
-  //         return 1;
-  //       }
-  //     });
-  //     mediasArray.forEach(function (e) {
-  //       console.log(e.date);
-  //     });
-  //   }
-
-  //   const titleButton = document.getElementById("title_option");
-  //   titleButton.addEventListener("click", function () {
-  //     return orderByTitle();
-  //   });
-  //   function orderByTitle() {
-  //     mediasArray.sort(function (a, b) {
-  //       if (a.title < b.title) {
-  //         return -1;
-  //       } else {
-  //         return 1;
-  //       }
-  //     });
-  //     mediasArray.forEach(function (e) {
-  //       console.log(e.title);
-  //     });
-  //   }
+  //   totalLikes = Number(totalLikes) + Number(media.likes);
+  //   console.log(totalLikes);
   // });
+
+  // document.querySelector("#total_like_number").textContent = totalLikes;
+
 }
 
-function orderFilterMedias(mediasArray){
+// Total likes
+
+function totalLike(mediasArray) {
+  mediasArray.forEach((media) => {
+    totalLikes = Number(totalLikes) + Number(media.likes);
+  });
+  document.querySelector("#total_like_number").textContent = totalLikes;
+}
+
+
+
+// Filtre des médias
+
+function orderFilterMedias(mediasArray) {
   const filterButtons = document.querySelectorAll(".option");
 
-  filterButtons.forEach((button)=> {
-
-    button.onclick = function(){
-
+  filterButtons.forEach((button) => {
+    (button.onclick = function () {
       mediasToDisplay(filterMedias(mediasArray, this.dataset.order));
-      console.log(mediasArray, this.dataset.order);
-
-    },{passive:true};
-
+    }),
+      { passive: true };
   });
 }
