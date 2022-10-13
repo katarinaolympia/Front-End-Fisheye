@@ -318,28 +318,28 @@ h1 {
   height: 500px;
   object-fit: cover;
   border-radius: 5px;
-  padding-bottom: 5px;
 }
 
 .chevron_left,
 .chevron_right {
   color: #901c1c;
-  font-size: 38px;
-  padding: 30px;
+  padding: 40px;
+  stroke-width: 85px;
   cursor: pointer;
 }
 
 .image_text {
+  margin-top: 5px;
   color: #901c1c;
-  font: 22px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 .close_lightbox {
   color: #901c1c;
-  font-size: 38px;
-  position: absolute;
-  top: 55px;
-  right: 288px;
+  position: relative;
+  bottom: 40%;
+  right: 6%;
   cursor: pointer;
+
 }

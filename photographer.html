@@ -300,14 +300,25 @@
       aria-label="Vue détaillée de l'image"
       tabindex="0"
     >
-      <div class="chevron_left" id="previous">
-        <i
+      <span class="chevron_left" id="previous">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="50"
+          height="50"
+          fill="#901c1c"
+          class="bi bi-chevron-left"
+          viewBox="0 0 16 16"
           class="fa-solid fa-chevron-left chevron"
           role="img"
           aria-label="Image précédente"
           tabindex="0"
-        ></i>
-      </div>
+        >
+          <path
+            fill-rule="#901c1c"
+            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+          />
+        </svg>
+      </span>
       <div>
         <div class="image_container">
           <!--
@@ -318,22 +329,41 @@
         </div>
         <span class="image_text"></span>
       </div>
-      <div class="chevron_right" id="next">
-        <i
-          class="fa-solid fa-chevron-right chevron"
+      <span class="chevron_right" id="next">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="50"
+          height="50"
+          fill="#901c1c"
+          viewBox="0 0 16 16"
+          class="fa-chevron-right chevron"
           role="img"
           aria-label="Image suivante"
           tabindex="0"
-        ></i>
-      </div>
-      <div class="close_lightbox">
-        <i
+        >
+          <path
+            fill-rule="#901c1c"
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </span>
+      <span class="close_lightbox">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          fill="#901c1c"
           class="fa-solid fa-xmark close"
+          viewBox="0 0 16 16"
           role="img"
           aria-label="Fermeture de la fenêtre"
           tabindex="0"
-        ></i>
-      </div>
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+          />
+        </svg>
+      </span>
     </div>
   </body>
   <script src="./scripts/utils/contactForm.js"></script>
