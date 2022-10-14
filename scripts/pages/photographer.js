@@ -71,7 +71,7 @@ function photographerToDisplay(photographerInfo) {
 	return true
 }
 
-// Ouverture et fermeture du tri de sélection
+// Ouverture et fermeture du filtre des médias
 
 const popularityOption = document.getElementById("popularity_option")
 const dateOption = document.getElementById("date_option")
@@ -91,6 +91,7 @@ window.addEventListener("click", (e) => {
 })
 
 // Afficher la galerie
+// Fonction media factory : affichage image / vidéo
 
 function mediasFactory(media, mediaIndex) {
 	if (media.image !== undefined) {
@@ -113,6 +114,8 @@ function createVideo(data, mediaIndex) {
         
     `
 }
+
+// Fonction media To Display : création du DOM
 
 function mediasToDisplay(mediasArray) {
 	let html = ""
@@ -177,13 +180,6 @@ function mediasToDisplay(mediasArray) {
 		heartNumber.textContent = Number(heartNumber.textContent) - 1
 		return (isLiked = false)
 	}
-
-	// mediasArray.forEach((media) => {
-	//   totalLikes = Number(totalLikes) + Number(media.likes);
-	//   console.log(totalLikes);
-	// });
-
-	// document.querySelector("#total_like_number").textContent = totalLikes;
 
 }
 

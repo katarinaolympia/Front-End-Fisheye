@@ -1,4 +1,6 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
+// Création du DOM des profils des photographes su la page index
+
 function photographerFactory(data) {
 	const { name, portrait, id, city, country, tagline, price } = data
 

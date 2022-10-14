@@ -8,6 +8,8 @@ function closeLightbox() {
 	return (document.querySelector(".lightbox_container").style.display = "none")
 }
 
+// Affichage du 1er élément et événements de navigation
+
 function lightbox(mediasArray, mediaIndex) {
 	const imageContainer = document.querySelector(".image_container")
 	const firstMediaToDisplay = mediasArray[mediaIndex]
@@ -54,6 +56,8 @@ function lightbox(mediasArray, mediaIndex) {
 		return false
 	}
 
+	// Affichage des médias, création DOM
+
 	function displayMediaInLightbox(mediasToDisplay) {
 		const mediaHTML = `
       ${mediasFactory(mediasToDisplay)}
@@ -68,6 +72,7 @@ function lightbox(mediasArray, mediaIndex) {
 		return false
 	}
 
+	// Accessibilité par clavier
 	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape") {
 			return closeLightbox()
