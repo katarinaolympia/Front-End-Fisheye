@@ -171,13 +171,15 @@ function mediasToDisplay(mediasArray) {
 	let isLiked = false
 	function addLike(likeButton) {
 		let heartNumber = likeButton.previousElementSibling
-
+		let likes = document.querySelector("#total_like_number")
 		if (isLiked === false) {
 			heartNumber.textContent = Number(heartNumber.textContent) + 1
+			likes.textContent = Number(likes.textContent) + 1
 			return (isLiked = true)
 		}
 
 		heartNumber.textContent = Number(heartNumber.textContent) - 1
+		likes.textContent = Number(likes.textContent) - 1
 		return (isLiked = false)
 	}
 
