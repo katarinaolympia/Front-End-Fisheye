@@ -102,13 +102,13 @@ function mediasFactory(media, mediaIndex) {
 }
 
 function createImage(data, mediaIndex) {
-	return `<img src="./assets/medias_photographer/${data.image}" data-index="${mediaIndex}" class="photography" aria-label="${data.title}" />`
+	return `<img tabindex="1" src="./assets/medias_photographer/${data.image}" data-index="${mediaIndex}" class="photography" aria-label="${data.title}" />`
 }
 
 function createVideo(data, mediaIndex) {
 	return `
      
-        <video tabindex="0" aria-label="${data.title}" data-index="${mediaIndex}" class="photography video_media">
+        <video tabindex="1" aria-label="${data.title}" data-index="${mediaIndex}" class="photography video_media">
             <source src="./assets/medias_photographer/${data.video}" type="video/mp4">
         </video>
         
