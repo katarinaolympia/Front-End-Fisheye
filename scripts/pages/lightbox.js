@@ -11,6 +11,7 @@ function closeLightbox() {
 // Affichage du 1er élément et événements de navigation
 
 function lightbox(mediasArray, mediaIndex) {
+	console.log(mediasArray)
 	const imageContainer = document.querySelector(".image_container")
 	const firstMediaToDisplay = mediasArray[mediaIndex]
 
@@ -74,10 +75,11 @@ function lightbox(mediasArray, mediaIndex) {
 
 	// Accessibilité par clavier
 	document.addEventListener("keydown", (event) => {
+		
 		if (event.key === "Escape") {
 			return closeLightbox()
 		}
-
+		
 		if (event.key === "ArrowRight") {
 			return nextPicture()
 		}

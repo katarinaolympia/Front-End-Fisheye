@@ -131,7 +131,7 @@ function mediasToDisplay(mediasArray) {
               <span class="media_like_number" aria-label="likes">${
 	media.likes
 }</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="media_like" width="15" height="16" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>
+              <svg tabindex="1" xmlns="http://www.w3.org/2000/svg" class="media_like" width="15" height="16" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>
             </div>
         </div>
     </article>
@@ -166,6 +166,11 @@ function mediasToDisplay(mediasArray) {
 		like.addEventListener("click", function () {
 			return addLike(this)
 		})
+		like.addEventListener("keypress", function (event) {
+			if (event.key === "Enter") {
+				return addLike(this)
+			}
+		})
 	})
 
 	let isLiked = false
@@ -182,7 +187,6 @@ function mediasToDisplay(mediasArray) {
 		likes.textContent = Number(likes.textContent) - 1
 		return (isLiked = false)
 	}
-
 }
 
 // Total likes
@@ -193,8 +197,6 @@ function totalLike(mediasArray) {
 	})
 	document.querySelector("#total_like_number").textContent = totalLikes
 }
-
-
 
 // Filtre des médias
 
