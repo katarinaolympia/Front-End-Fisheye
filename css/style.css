@@ -218,8 +218,9 @@ h1 {
   opacity: 0.8;
 }
 
-.media_like:hover {
+.media_like:focus {
   opacity: 1;
+  outline: none;
 }
 
 .text_border_right {
@@ -341,5 +342,4 @@ h1 {
   bottom: 40%;
   right: 6%;
   cursor: pointer;
-
 }
